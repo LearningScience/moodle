@@ -174,7 +174,7 @@ class sync_grades extends \core\task\scheduled_task {
                         }
 
                         if (strpos(strtolower($response), 'success') !== false) {
-                            $DB->set_field('enrol_lti_users', 'lastgrade', intval($grade), array('id' => $ltiuser->id));
+                            $DB->set_field('enrol_lti_users', 'lastgrade', $grade, array('id' => $ltiuser->id));
                             mtrace("Success - The grade '$floatgrade' $mtracecontent was sent.");
                             $sendcount = $sendcount + 1;
                         } else {
